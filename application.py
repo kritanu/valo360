@@ -23,7 +23,6 @@ application.config['MAIL_USE_SSL']=os.environ['MAIL_USE_TLS']
 
 url_serializer = URLSafeTimedSerializer(config.URLSAFE_KEY)
 otp_generated = randint(1000,9999)
-application.config.from_pyfile('mail.cfg')
 mail = Mail(application)
 
 
