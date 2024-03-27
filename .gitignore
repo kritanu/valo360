@@ -161,5 +161,4 @@ cython_debug/
 
 
 # Config Files
-config.py
 mail.cfg
