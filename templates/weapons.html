@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block main_content %}
+<h1>Valorant Market</h1>
+<form method="POST">
+    {% for datas in data.data %}    
+    <p> {{ datas["displayName"] }} </p>
+        {% for skins in datas["skins"] %}
+            <input type="checkbox" id="weapon_list_checkbox" name="weapon_list_checkbox" value="{{ [skins['displayName'], skins['uuid']]  }}">
+            <label> {{ skins["displayName"] }} </label>
+            <img src = {{ skins["displayIcon"] }} style = "max-width:100px;
+                                                            max-height:40px;
+                                                            width:auto;
+                                                            height:auto;">
+            {# <p>{{ skins["contentTierUuid"] }} </p> #}
+        {% endfor %}
+    {% endfor%}
+    <input type="submit">
+</form>
+{% endblock %}

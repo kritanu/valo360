@@ -1,0 +1,28 @@
+
+{% extends "main_template.html" %}
+
+{% block content %}
+
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+	<div class="container">
+		<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+			<div class="col-lg-6">
+				<div class="login_form_inner">
+					<h3>Enter OTP</h3>
+					<form class="row login_form" action="/verification" method="post" id="OTPForm" novalidate="novalidate">
+						<div class="col-md-12 form-group">
+							<input type="text" class="form-control" id="otp" name="otp" placeholder="OTP" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+						</div>
+						<div class="col-md-12 form-group">
+							<button type="submit" value="submit" class="primary-btn">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Banner Area -->
+
+{% endblock %}
