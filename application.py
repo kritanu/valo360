@@ -6,12 +6,21 @@ import db
 import config
 import requests
 import json
+import os 
+
 
 application = Flask(__name__)
-application.secret_key = config.APP_SECRET_KEY
+application.secret_key = os.environ['APP_SECRET_KEY']
 
 
 # Instantiate Mail/ OTP for registration
+application.config['MAIL_SERVER']=os.environ['MAIL_SERVER']
+application.config['MAIL_PORT']=os.environ['MAIL_USERNAME']
+application.config['MAIL_USERNAME']=os.environ['MAIL_PASSWORD']
+application.config['MAIL_PASSWORD']=os.environ['MAIL_PORT']
+application.config['MAIL_USE_TLS']=os.environ['MAIL_USE_SSL']
+application.config['MAIL_USE_SSL']=os.environ['MAIL_USE_TLS']
+
 url_serializer = URLSafeTimedSerializer(config.URLSAFE_KEY)
 otp_generated = randint(1000,9999)
 application.config.from_pyfile('mail.cfg')
